@@ -13,7 +13,7 @@ class Counter extends Component {
     render() {
         return (
             <View style={{ margin: 50 }}>
-                
+
                 <Text>{JSON.stringify(this.props.user)}</Text>
                 <Button
                     onPress={this.props.increment}
@@ -25,11 +25,12 @@ class Counter extends Component {
                     title='Decrease count'
                 />
                 <Button
-                    onPress={() => { this.props.navigation.push('Posts') }}
+                    onPress={() => { this.props.navigation.navigate('Posts') }}
                     title='Posts' />
                 <Button
-                    onPress={() => { this.props.navigation.push('Login') }}
+                    onPress={() => { this.props.navigation.navigate('Login') }}
                     title='Login' />
+                
             </View>
         )
     }
@@ -44,7 +45,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     increment: () => {
-        console.log('counterIncrement')
         dispatch(counterIncrement)
     },
     decrement: (data) => {

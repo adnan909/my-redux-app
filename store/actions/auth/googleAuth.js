@@ -1,5 +1,5 @@
 import * as Expo from 'expo'
-import Actions from './actionTypes'
+import Actions from '../actionTypes'
 
 export const googleAuth = async () => {
 
@@ -9,9 +9,6 @@ export const googleAuth = async () => {
             iosClientId: '86072608741-prt8fmiq3qbhqv9citf32qk21o4r33nk.apps.googleusercontent.com',
             scopes: ['profile', 'email'],
         })
-        // .then(res => res.json())
-        // .then(result => {
-        console.log(result)
         if (result.type === 'success') {
             return ({
                 type: Actions.GOOGLE_LOGIN_SUCCESS,
@@ -24,7 +21,6 @@ export const googleAuth = async () => {
                 payload: result
             };
         }
-        // })
     }
     catch (err) {
         return {

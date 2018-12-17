@@ -1,15 +1,33 @@
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createAppContainer, createDrawerNavigator,createSwitchNavigator } from "react-navigation";
 import Posts from '../components/posts'
 import Counter from '../components/counter'
-import Login from '../components/login'
-const AppNavigator = createStackNavigator(
+import Login from '../components/auth/index'
+import Register from '../components/auth/register'
+import Home from '../components/home/home'
+import AuthLoading from '../components/auth/authLoading'
+
+const Drawer = createDrawerNavigator(
     {
+        Home,
         Counter,
-        Posts,
-        Login
+        Posts
     },
     {
-        initialRouteName: 'Counter'
+        initialRouteName: 'Home'
+    })
+const authenticationNavigator = createStackNavigator(
+    {
+        Login,
+        Register
+    })
+const AppNavigator = createSwitchNavigator(
+    {
+        AuthLoading,
+        Auth: authenticationNavigator,
+        Drawer
+    },
+    {
+        initialRouteName: 'AuthLoading'
     }
 );
 const AppContainer = createAppContainer(AppNavigator)

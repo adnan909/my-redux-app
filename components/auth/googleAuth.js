@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
-import {googleAuth} from '../store/actions/login'
+import { googleAuth } from '../../store/actions/auth/googleAuth'
 
-class Login extends Component {
+class GoogleAuth extends Component {
     render() {
         return (
             <View>
-                <Text>{JSON.stringify(this.props.user)}</Text>
+                <Text>User data: {JSON.stringify(this.props.user)}</Text>
                 <Button
                     onPress={() => {
                         this.props.googleAuth()
@@ -30,4 +30,4 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(GoogleAuth)

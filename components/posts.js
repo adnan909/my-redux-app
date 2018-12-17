@@ -25,7 +25,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     fetchPosts: () => {
-        console.log('fetchPosts')
         fetchPosts().then(data => { dispatch(data) }).catch(err => console.log(err))
 
     }
