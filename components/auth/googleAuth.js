@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
-import { googleAuth } from '../../store/actions/auth/googleAuth'
+import { googleAuth } from '../../store/actions/auth/login'
 
 class GoogleAuth extends Component {
     render() {
